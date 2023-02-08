@@ -1,0 +1,3 @@
+type,sleep_start,sleep_end,temperature_samples,nightly_temperature,baseline_relative_sample_sum,baseline_relative_sample_sum_of_squares,baseline_relative_nightly_standard_deviation,baseline_relative_sample_standard_deviation
+IDT,2023-02-01T04:46,2023-02-01T13:22:30,517,33.07833655705996,-100.21179245282838,902.3017472855281,0.7261264455197434,1.5984343818423998
+IDT,2023-02-02T03:42:30,2023-02-02T12:34:30,532,32.71766917293233,-243.43469398926754,1013.8057335293852,0.6968907668612332,1.5681092893546145
