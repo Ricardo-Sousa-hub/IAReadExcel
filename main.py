@@ -65,6 +65,12 @@ firstDatas = ["2023-01-19", "2023-01-20", "2023-01-21", "2023-01-22", "2023-01-2
               "2023-01-26", "2023-01-27", "2023-01-28", "2023-01-29", "2023-01-30", "2023-01-31", "2023-02-01",
               "2023-02-02"]
 
+#firstCalorias = []
+
+#firstPassos = []
+
+#firstHeartRate = []
+
 dias = len(firstDatas)
 sleepStages = {
     'wake': 0,
@@ -73,15 +79,21 @@ sleepStages = {
     'rem': 3
 }
 
+print("Generating excel...")
+print("0%", end="")
+
 index = 0
 for dia in firstDatas:
-
+    tempList = []
     dataS = dataSleep[index]['dateOfSleep']
 
-    while dataS != dia:
-        index += 1
-        dataS = dataSleep[index]['dateOfSleep']
 
+
+    while dataS != dia:
+        dataS = dataSleep[index]['dateOfSleep']
+        index += 1
+
+    tempList = dataSleep[index]['levels']['data']
     nome = dataSleep[index]['dateOfSleep'] + '.xlsx'
 
     workbook = xl.Workbook(nome)
@@ -183,88 +195,125 @@ for dia in firstDatas:
     format1 = workbook.add_format({'num_format': 'hh:mm'})
     format3 = workbook.add_format({'num_format': 'yyyy-mm-ddThh:mm:ss'})
     format5 = workbook.add_format({'num_format': 'hh:mm:ss'})
-    while startTimeD < endTimeD:
-        worksheet.write(count, 0, dia)
-        worksheet.write(count, 1, count)
-        worksheet.write_datetime(count, 2, startTimeD, format5)
-        startTimeD = startTimeD + timedelta(seconds=30)
 
-        worksheet.write(count, 4, startTimeD.strftime("%d/%y/%Y"))
-        startTimeD1 = datetime(year=int(startDate[0]), month=int(startDate[1]), day=int(startDate[2]), hour=int(startTime[0]), minute=int(startTime[1]), second=int(startTime[2].split('.')[0]))
-        worksheet.write_datetime(count, 5, startTimeD1, format3)
-        endTimeD1 = datetime(year=int(endDate[0]), month=int(endDate[1]), day=int(endDate[2]),
-                               hour=int(endTime[0]), minute=int(endTime[1]), second=int(endTime[2].split('.')[0]))
-        worksheet.write_datetime(count, 6, endTimeD1, format3)
+    temp = dataSleep[index]['levels']['summary']
 
-        worksheet.write(count, 7, dataSleep[index]['minutesToFallAsleep'])
-        worksheet.write(count, 8, dataSleep[index]['minutesAsleep'])
-        worksheet.write(count, 9, dataSleep[index]['minutesAwake'])
-        worksheet.write(count, 10, dataSleep[index]['minutesAfterWakeup'])
-        worksheet.write(count, 11, dataSleep[index]['timeInBed'])
-        worksheet.write(count, 12, dataSleep[index]['efficiency'])
+    try:
+        if temp['deep']['count'] != 0 and temp['wake']['count'] != 0 and temp['light']['count'] != 0 and temp['rem']['count'] != 0:
+            while startTimeD < endTimeD:
+                worksheet.write(count, 0, dia)
+                worksheet.write(count, 1, count)
+                worksheet.write_datetime(count, 2, startTimeD, format5)
+                startTimeD = startTimeD + timedelta(seconds=30)
 
-        levelsSummary = dataSleep[index]['levels']['summary']
-        try:
-            worksheet.write(count, 13, levelsSummary['deep']['count'])
-            worksheet.write(count, 14, levelsSummary['deep']['minutes'])
-        except:
-            print()
-        try:
-            worksheet.write(count, 15, levelsSummary['wake']['count'])
-            worksheet.write(count, 16, levelsSummary['wake']['minutes'])
-        except:
-            print()
-        try:
-            worksheet.write(count, 17, levelsSummary['light']['count'])
-            worksheet.write(count, 18, levelsSummary['light']['minutes'])
-        except:
-            print()
-        try:
-            worksheet.write(count, 19, levelsSummary['rem']['count'])
-            worksheet.write(count, 20, levelsSummary['rem']['minutes'])
-        except:
-            print()
-        worksheet.write(count, 21, int(sleepScore))
+                for i in tempList:
+                    time1 = i['dateTime'].split('T')
+                    time2 = time1[0].split('-')
+                    time3 = time1[1].split(':')
 
-        worksheet.write(count, 22, int(stressDoDia['Stress1']))
-        worksheet.write(count, 23, int(stressDoDia['Stress2']))
-        worksheet.write(count, 24, int(stressDoDia['Stress3']))
+                    dateTime1 = datetime(year=int(time2[0]), month=int(time2[1]), day=int(time2[2]),
+                                         hour=int(time3[0]), minute=int(time3[1]), second=int(time3[2].split('.')[0]))
 
-        worksheet.write(count, 25, int(datasetDoDia['Temperatura Media do ar']))
-        worksheet.write(count, 26, int(datasetDoDia['Abertura de Apps (Total)']))
-        worksheet.write(count, 27, int(datasetDoDia['Notificacoes (Total)']))
-        worksheet.write(count, 28, int(datasetDoDia['Desbloqueios (Total)']))
-        worksheet.write(count, 29, int(datasetDoDia['0-3am']))
-        worksheet.write(count, 30, int(datasetDoDia['3-6am']))
-        worksheet.write(count, 31, int(datasetDoDia['6-9am']))
-        worksheet.write(count, 32, int(datasetDoDia['9am-12pm']))
-        worksheet.write(count, 33, int(datasetDoDia['12-3pm']))
-        worksheet.write(count, 34, int(datasetDoDia['3-6pm']))
-        worksheet.write(count, 35, int(datasetDoDia['6-9pm']))
-        worksheet.write(count, 36, int(datasetDoDia['9pm-0am']))
-        worksheet.write(count, 37, int(datasetDoDia['Enviados (Total)']))
-        worksheet.write(count, 38, int(datasetDoDia['Recebidos (Total)']))
+                    if startTimeD < dateTime1:
+                        status = 0
+                        if i['level'] == 'wake':
+                            status = 0
+                        if i['level'] == 'light':
+                            status = 2
+                        if i['level'] == 'deep':
+                            status = 1
+                        if i['level'] == 'rem':
+                            status = 3
+                        worksheet.write(count, 3, status)
+                        break
 
-        worksheet.write(count, 39, datasetDoDia['1 email enviado (timestamp)'])
-        worksheet.write(count, 40, datasetDoDia['ultimo email enviado (timestamp)'])
-        try:
-            worksheet.write(count, 41, int(datasetDoDia['Total (efetuadas + recebidas)']))
-        except:
-            print()
-        worksheet.write(count, 42, datasetDoDia['1 chamada (timestamp)'])
-        worksheet.write(count, 43, datasetDoDia['ultima chamada (timestamp)'])
-        try:
-            worksheet.write(count, 44, int(datasetDoDia['Total (recebidas + enviadas)']))
-            worksheet.write(count, 45, int(datasetDoDia['Total apos 0h (recebidas + enviadas)']))
-        except:
-            print()
-        worksheet.write(count, 46, datasetDoDia['1 mensagem (timestamp)'])
-        worksheet.write(count, 47, datasetDoDia['ultima mensagem (timestamp)'])
+                worksheet.write(count, 4, startTimeD.strftime("%d/%m/%Y"))
+                startTimeD1 = datetime(year=int(startDate[0]), month=int(startDate[1]), day=int(startDate[2]), hour=int(startTime[0]), minute=int(startTime[1]), second=int(startTime[2].split('.')[0]))
+                worksheet.write_datetime(count, 5, startTimeD1, format3)
+                endTimeD1 = datetime(year=int(endDate[0]), month=int(endDate[1]), day=int(endDate[2]),
+                                       hour=int(endTime[0]), minute=int(endTime[1]), second=int(endTime[2].split('.')[0]))
+                worksheet.write_datetime(count, 6, endTimeD1, format3)
 
-        count += 1
-    index = 0
+                worksheet.write(count, 7, dataSleep[index]['minutesToFallAsleep'])
+                worksheet.write(count, 8, dataSleep[index]['minutesAsleep'])
+                worksheet.write(count, 9, dataSleep[index]['minutesAwake'])
+                worksheet.write(count, 10, dataSleep[index]['minutesAfterWakeup'])
+                worksheet.write(count, 11, dataSleep[index]['timeInBed'])
+                worksheet.write(count, 12, dataSleep[index]['efficiency'])
 
-    workbook.close()
+                levelsSummary = dataSleep[index]['levels']['summary']
+                try:
+                    worksheet.write(count, 13, levelsSummary['deep']['count'])
+                    worksheet.write(count, 14, levelsSummary['deep']['minutes'])
+                except:
+                    print()
+                try:
+                    worksheet.write(count, 15, levelsSummary['wake']['count'])
+                    worksheet.write(count, 16, levelsSummary['wake']['minutes'])
+                except:
+                    print()
+                try:
+                    worksheet.write(count, 17, levelsSummary['light']['count'])
+                    worksheet.write(count, 18, levelsSummary['light']['minutes'])
+                except:
+                    print()
+                try:
+                    worksheet.write(count, 19, levelsSummary['rem']['count'])
+                    worksheet.write(count, 20, levelsSummary['rem']['minutes'])
+                except:
+                    print()
+                worksheet.write(count, 21, int(sleepScore))
+
+                worksheet.write(count, 22, int(stressDoDia['Stress1']))
+                worksheet.write(count, 23, int(stressDoDia['Stress2']))
+                worksheet.write(count, 24, int(stressDoDia['Stress3']))
+
+                worksheet.write(count, 25, int(datasetDoDia['Temperatura Media do ar']))
+                worksheet.write(count, 26, int(datasetDoDia['Abertura de Apps (Total)']))
+                worksheet.write(count, 27, int(datasetDoDia['Notificacoes (Total)']))
+                worksheet.write(count, 28, int(datasetDoDia['Desbloqueios (Total)']))
+                worksheet.write(count, 29, int(datasetDoDia['0-3am']))
+                worksheet.write(count, 30, int(datasetDoDia['3-6am']))
+                worksheet.write(count, 31, int(datasetDoDia['6-9am']))
+                worksheet.write(count, 32, int(datasetDoDia['9am-12pm']))
+                worksheet.write(count, 33, int(datasetDoDia['12-3pm']))
+                worksheet.write(count, 34, int(datasetDoDia['3-6pm']))
+                worksheet.write(count, 35, int(datasetDoDia['6-9pm']))
+                worksheet.write(count, 36, int(datasetDoDia['9pm-0am']))
+                worksheet.write(count, 37, int(datasetDoDia['Enviados (Total)']))
+                worksheet.write(count, 38, int(datasetDoDia['Recebidos (Total)']))
+
+                worksheet.write(count, 39, datasetDoDia['1 email enviado (timestamp)'])
+                worksheet.write(count, 40, datasetDoDia['ultimo email enviado (timestamp)'])
+                try:
+                    worksheet.write(count, 41, int(datasetDoDia['Total (efetuadas + recebidas)']))
+                except:
+                    print()
+                worksheet.write(count, 42, datasetDoDia['1 chamada (timestamp)'])
+                worksheet.write(count, 43, datasetDoDia['ultima chamada (timestamp)'])
+                try:
+                    worksheet.write(count, 44, int(datasetDoDia['Total (recebidas + enviadas)']))
+                    worksheet.write(count, 45, int(datasetDoDia['Total apos 0h (recebidas + enviadas)']))
+                except:
+                    print()
+                worksheet.write(count, 46, datasetDoDia['1 mensagem (timestamp)'])
+                worksheet.write(count, 47, datasetDoDia['ultima mensagem (timestamp)'])
+
+                count += 1
+            index = 0
+
+            workbook.close()
+    except:
+        index = 0
+        print()
+
+    print("=", end="")
+
+print("100%")
+
+print("Agrupando e organizando ficheiros resultantes da operação anterior...")
+print("0%", end="")
+print("=", end="")
 
 file_list = glob.glob("*.xlsx")
 
@@ -272,6 +321,11 @@ excl_list = []
 
 for file in file_list:
     excl_list.append(pd.read_excel(file))
+    print("=", end="")
+
+print("100%")
+print("Gerando Dataset Final...")
+print("0%", end="")
 
 # create a new dataframe to store the
 # merged excel file.
@@ -282,7 +336,11 @@ for excl_file in excl_list:
     # dataframe.
     excl_merged = excl_merged.append(
         excl_file, ignore_index=True)
-
+    print("=", end="")
 # exports the dataframe into excel file with
 # specified name.
 excl_merged.to_excel('Final_Dataset.xlsx', index=False)
+
+print("100%")
+
+print("Programa terminado")
