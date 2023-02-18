@@ -10,6 +10,7 @@ import openpyxl
 
 listaExcel = []
 
+
 def reverseText(s):
     # base case
     if not s:
@@ -43,6 +44,7 @@ def reverseText(s):
 
     return sb[:-1]  # remove last space
 
+
 fSleep = open('Sleep/sleep-2023-01-17.json')
 dataSleep = json.load(fSleep)
 
@@ -65,11 +67,19 @@ firstDatas = ["2023-01-19", "2023-01-20", "2023-01-21", "2023-01-22", "2023-01-2
               "2023-01-26", "2023-01-27", "2023-01-28", "2023-01-29", "2023-01-30", "2023-01-31", "2023-02-01",
               "2023-02-02"]
 
-#firstCalorias = []
+# firstCalorias = []
 
-#firstPassos = []
+# firstPassos = []
 
-#firstHeartRate = []
+# firstHeartRate = []
+
+# firstDistance = []
+
+# firstFloors = []
+
+# firstAge =
+
+# fistBMI = KG/H
 
 dias = len(firstDatas)
 sleepStages = {
@@ -86,8 +96,6 @@ index = 0
 for dia in firstDatas:
     tempList = []
     dataS = dataSleep[index]['dateOfSleep']
-
-
 
     while dataS != dia:
         dataS = dataSleep[index]['dateOfSleep']
@@ -148,7 +156,7 @@ for dia in firstDatas:
     worksheet.write(0, 46, 'Text3')
     worksheet.write(0, 47, 'Text4')
 
-    dia = firstDatas.index(dia)+1
+    dia = firstDatas.index(dia) + 1
     worksheet.write(1, 0, dia)
 
     startSleep = ""
@@ -188,8 +196,10 @@ for dia in firstDatas:
     startDate = startSleep.split('T')[0].split('-')
     endDate = endSleep.split('T')[0].split('-')
 
-    startTimeD = datetime(year=int(startDate[0]), month=int(startDate[1]), day=int(startDate[2]), hour=int(startTime[0]), minute=int(startTime[1]), second=int(startTime[2].split('.')[0]))
-    endTimeD = datetime(year=int(endDate[0]), month=int(endDate[1]), day=int(endDate[2]), hour=int(endTime[0]), minute=int(endTime[1]), second=int(endTime[2].split('.')[0]))
+    startTimeD = datetime(year=int(startDate[0]), month=int(startDate[1]), day=int(startDate[2]),
+                          hour=int(startTime[0]), minute=int(startTime[1]), second=int(startTime[2].split('.')[0]))
+    endTimeD = datetime(year=int(endDate[0]), month=int(endDate[1]), day=int(endDate[2]), hour=int(endTime[0]),
+                        minute=int(endTime[1]), second=int(endTime[2].split('.')[0]))
 
     count = 1
     format1 = workbook.add_format({'num_format': 'hh:mm'})
@@ -199,7 +209,8 @@ for dia in firstDatas:
     temp = dataSleep[index]['levels']['summary']
 
     try:
-        if temp['deep']['count'] != 0 and temp['wake']['count'] != 0 and temp['light']['count'] != 0 and temp['rem']['count'] != 0:
+        if temp['deep']['count'] != 0 and temp['wake']['count'] != 0 and temp['light']['count'] != 0 and temp['rem'][
+            'count'] != 0:
             while startTimeD < endTimeD:
                 worksheet.write(count, 0, dia)
                 worksheet.write(count, 1, count)
@@ -228,10 +239,12 @@ for dia in firstDatas:
                         break
 
                 worksheet.write(count, 4, startTimeD.strftime("%d/%m/%Y"))
-                startTimeD1 = datetime(year=int(startDate[0]), month=int(startDate[1]), day=int(startDate[2]), hour=int(startTime[0]), minute=int(startTime[1]), second=int(startTime[2].split('.')[0]))
+                startTimeD1 = datetime(year=int(startDate[0]), month=int(startDate[1]), day=int(startDate[2]),
+                                       hour=int(startTime[0]), minute=int(startTime[1]),
+                                       second=int(startTime[2].split('.')[0]))
                 worksheet.write_datetime(count, 5, startTimeD1, format3)
                 endTimeD1 = datetime(year=int(endDate[0]), month=int(endDate[1]), day=int(endDate[2]),
-                                       hour=int(endTime[0]), minute=int(endTime[1]), second=int(endTime[2].split('.')[0]))
+                                     hour=int(endTime[0]), minute=int(endTime[1]), second=int(endTime[2].split('.')[0]))
                 worksheet.write_datetime(count, 6, endTimeD1, format3)
 
                 worksheet.write(count, 7, dataSleep[index]['minutesToFallAsleep'])
