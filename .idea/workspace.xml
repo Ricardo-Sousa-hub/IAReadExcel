@@ -4,11 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85106e1e-7269-42be-aded-25a36979f3b1" name="Changes" comment="" />
+    <list default="true" id="85106e1e-7269-42be-aded-25a36979f3b1" name="Changes" comment="Added more data.">
+      <change afterPath="$PROJECT_DIR$/Utils.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-01-19.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-01-22.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-01-25.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-01-26.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-01-27.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-01-28.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-01-29.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-01-30.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-01-31.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/2023-02-02.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Final_Dataset.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -17,6 +41,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2LSfKGRUnw06gyuqRUh3ZNnqjVT" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,9 +61,10 @@
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
-      <option name="SDK_HOME" value="" />
+      <option name="SDK_HOME" value="C:\Users\Ricardo Sousa\PycharmProjects\IAReadExcel\venv\Scripts\python.exe" />
+      <option name="SDK_NAME" value="Python 3.11 (IAReadExcel)" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
+      <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
@@ -74,38 +100,61 @@
       <option name="project" value="LOCAL" />
       <updated>1676417778505</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Added more data.">
+      <created>1676682860133</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1676682860133</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Works" />
     <MESSAGE value="Interface Update." />
-    <option name="LAST_COMMIT_MESSAGE" value="Interface Update." />
+    <MESSAGE value="Added more data." />
+    <option name="LAST_COMMIT_MESSAGE" value="Added more data." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>319</line>
-          <option name="timeStamp" value="51" />
+          <line>112</line>
+          <option name="timeStamp" value="101" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>321</line>
-          <option name="timeStamp" value="52" />
+          <line>59</line>
+          <option name="timeStamp" value="102" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>331</line>
-          <option name="timeStamp" value="53" />
+          <line>56</line>
+          <option name="timeStamp" value="104" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main.py</url>
-          <line>317</line>
-          <option name="timeStamp" value="54" />
+          <line>53</line>
+          <option name="timeStamp" value="107" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>45</line>
+          <option name="timeStamp" value="116" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/main.py</url>
+          <line>105</line>
+          <option name="timeStamp" value="117" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="__exception__" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
