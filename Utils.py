@@ -216,3 +216,8 @@ def GerarDataSetFinal():
             excl_file, ignore_index=True)
 
     excl_merged.to_excel('Final_Dataset.xlsx', index=False)
+
+
+def ConverterDeXLSXToCSV():
+    read_file = pd.read_excel("Final_Dataset.xlsx")
+    read_file.to_csv('Final_Dataset.csv', index=None, header=True)

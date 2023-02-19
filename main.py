@@ -1,4 +1,4 @@
-from Utils import GetValidDatas, EscreverCabecalho, ConverterStrParaData, getSleepData, escreverSleepStages, escreverLevelSummary, GetSleepScore, GetStressDoDia, GetDatasetDoDia, GerarDataSetFinal
+from Utils import GetValidDatas, EscreverCabecalho, ConverterStrParaData, getSleepData, escreverSleepStages, escreverLevelSummary, GetSleepScore, GetStressDoDia, GetDatasetDoDia, GerarDataSetFinal, ConverterDeXLSXToCSV
 import json
 import csv
 import xlsxwriter as xl
@@ -64,7 +64,7 @@ while dayCounter < len(firstDatas):
     startSleepData = ConverterStrParaData(startSleep)
     endSleepData = ConverterStrParaData(endSleep)
     row = 1
-    while startSleepData < endSleepData:
+    while startSleepData <= endSleepData:
 
         worksheet.write(row, 0, dayCounter+1) # dia
         worksheet.write(row, 1, row) # epoch
@@ -153,4 +153,6 @@ print("Ficheiros gerados.")
 
 print("A gerar dataset final...")
 GerarDataSetFinal()
+ConverterDeXLSXToCSV()
 print("Dataset final gerado.")
+
