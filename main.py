@@ -36,7 +36,6 @@ fistBMI = 24.1
 
 firstDatas = GetValidDatas(dataSleepScore)
 dataSleep.reverse()
-dataSleepScore.reverse()
 
 dayCounter = 0
 
@@ -53,7 +52,7 @@ while dayCounter < len(firstDatas):
 
     EscreverCabecalho(worksheet)
 
-    format1 = workbook.add_format({'num_format': 'hh:mm'})
+    #format1 = workbook.add_format({'num_format': 'hh:mm'})
     format3 = workbook.add_format({'num_format': 'yyyy-mm-ddThh:mm:ss'})
     format5 = workbook.add_format({'num_format': 'hh:mm:ss'})
 
@@ -109,20 +108,20 @@ while dayCounter < len(firstDatas):
 
         datasetDoDia = GetDatasetDoDia(dataDataSet, firstDatas[dayCounter])
 
-        worksheet.write(row, 31, int(datasetDoDia['Temperatura Media do ar']))
-        worksheet.write(row, 32, int(datasetDoDia['Abertura de Apps (Total)']))
-        worksheet.write(row, 33, int(datasetDoDia['Notificacoes (Total)']))
-        worksheet.write(row, 34, int(datasetDoDia['Desbloqueios (Total)']))
-        worksheet.write(row, 35, int(datasetDoDia['0-3am']))
-        worksheet.write(row, 36, int(datasetDoDia['3-6am']))
-        worksheet.write(row, 37, int(datasetDoDia['6-9am']))
-        worksheet.write(row, 38, int(datasetDoDia['9am-12pm']))
-        worksheet.write(row, 39, int(datasetDoDia['12-3pm']))
-        worksheet.write(row, 40, int(datasetDoDia['3-6pm']))
-        worksheet.write(row, 41, int(datasetDoDia['6-9pm']))
-        worksheet.write(row, 42, int(datasetDoDia['9pm-0am']))
-        worksheet.write(row, 43, int(datasetDoDia['Enviados (Total)']))
-        worksheet.write(row, 44, int(datasetDoDia['Recebidos (Total)']))
+        worksheet.write_number(row, 31, float(datasetDoDia['Temperatura Media do ar']))
+        worksheet.write_number(row, 32, int(datasetDoDia['Abertura de Apps (Total)']))
+        worksheet.write_number(row, 33, int(datasetDoDia['Notificacoes (Total)']))
+        worksheet.write_number(row, 34, int(datasetDoDia['Desbloqueios (Total)']))
+        worksheet.write_number(row, 35, int(datasetDoDia['0-3am']))
+        worksheet.write_number(row, 36, int(datasetDoDia['3-6am']))
+        worksheet.write_number(row, 37, int(datasetDoDia['6-9am']))
+        worksheet.write_number(row, 38, int(datasetDoDia['9am-12pm']))
+        worksheet.write_number(row, 39, int(datasetDoDia['12-3pm']))
+        worksheet.write_number(row, 40, int(datasetDoDia['3-6pm']))
+        worksheet.write_number(row, 41, int(datasetDoDia['6-9pm']))
+        worksheet.write_number(row, 42, int(datasetDoDia['9pm-0am']))
+        worksheet.write_number(row, 43, int(datasetDoDia['Enviados (Total)']))
+        worksheet.write_number(row, 44, int(datasetDoDia['Recebidos (Total)']))
 
         worksheet.write(row, 45, datasetDoDia['1 email enviado (timestamp)'])
         worksheet.write(row, 46, datasetDoDia['ultimo email enviado (timestamp)'])
