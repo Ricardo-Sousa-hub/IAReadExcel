@@ -1,3 +1,0 @@
-timestamp,full_sleep_breathing_rate,full_sleep_standard_deviation,full_sleep_signal_to_noise,deep_sleep_breathing_rate,deep_sleep_standard_deviation,deep_sleep_signal_to_noise,light_sleep_breathing_rate,light_sleep_standard_deviation,light_sleep_signal_to_noise,rem_sleep_breathing_rate,rem_sleep_standard_deviation,rem_sleep_signal_to_noise
-2023-02-01T13:22:30,15.2,1.5,6.803,15.2,1.5,6.803,15.0,1.6,11.226,15.0,2.4,5.015
-2023-02-02T12:34:30,15.2,1.7,6.86,15.2,1.7,6.86,14.6,2.2,5.611,14.2,1.5,4.923
