@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="85106e1e-7269-42be-aded-25a36979f3b1" name="Changes" comment="Final Beta version">
-      <change beforePath="$PROJECT_DIR$/.idea/csv-editor.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/csv-editor.xml" afterDir="false" />
+    <list default="true" id="85106e1e-7269-42be-aded-25a36979f3b1" name="Changes" comment="Final Beta version 2.0">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sleep/sleep-2023-01-17.json" beforeDir="false" afterPath="$PROJECT_DIR$/Sleep/sleep-2023-01-17.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/Utils.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -110,7 +107,14 @@
       <option name="project" value="LOCAL" />
       <updated>1676818513254</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Final Beta version 2.0">
+      <created>1676915395855</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1676915395855</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -119,7 +123,8 @@
     <MESSAGE value="Added more data." />
     <MESSAGE value="Final Beta" />
     <MESSAGE value="Final Beta version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final Beta version" />
+    <MESSAGE value="Final Beta version 2.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final Beta version 2.0" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

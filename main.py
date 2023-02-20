@@ -2,11 +2,10 @@ from Utils import GetValidDatas, EscreverCabecalho, ConverterStrParaData, getSle
 import json
 import csv
 import xlsxwriter as xl
-from datetime import datetime
 from datetime import timedelta
 
 
-fSleep = open('Sleep/sleep-2023-01-17.json')
+fSleep = open('Sleep/sleep-2023-01-17.json') # alterar nome do ficheiro
 dataSleep = json.load(fSleep)
 
 fileSleepScore = open("Sleep/sleep_score.csv", "r")
