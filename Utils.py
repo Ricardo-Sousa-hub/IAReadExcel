@@ -145,29 +145,29 @@ def escreverSleepStages(tempList, worksheet, startTimeD, count):
                 status = 1
             if i['level'] == 'rem':
                 status = 3
-            worksheet.write(count, 3, status)
+            worksheet.write_number(count, 3, status)
             break
 
 
 def escreverLevelSummary(worksheet, levelsSummary, count):
     try:
-        worksheet.write(count, 13, levelsSummary['deep']['count'])
-        worksheet.write(count, 14, levelsSummary['deep']['minutes'])
+        worksheet.write_number(count, 13, levelsSummary['deep']['count'])
+        worksheet.write_number(count, 14, levelsSummary['deep']['minutes'])
     except:
         print()
     try:
-        worksheet.write(count, 15, levelsSummary['wake']['count'])
-        worksheet.write(count, 16, levelsSummary['wake']['minutes'])
+        worksheet.write_number(count, 15, levelsSummary['wake']['count'])
+        worksheet.write_number(count, 16, levelsSummary['wake']['minutes'])
     except:
         print()
     try:
-        worksheet.write(count, 17, levelsSummary['light']['count'])
-        worksheet.write(count, 18, levelsSummary['light']['minutes'])
+        worksheet.write_number(count, 17, levelsSummary['light']['count'])
+        worksheet.write_number(count, 18, levelsSummary['light']['minutes'])
     except:
         print()
     try:
-        worksheet.write(count, 19, levelsSummary['rem']['count'])
-        worksheet.write(count, 20, levelsSummary['rem']['minutes'])
+        worksheet.write_number(count, 19, levelsSummary['rem']['count'])
+        worksheet.write_number(count, 20, levelsSummary['rem']['minutes'])
     except:
         print()
 
@@ -201,7 +201,7 @@ def GetDatasetDoDia(datasetDoDia, data):
 
 def GerarDataSetFinal():
     file_list = glob.glob("*.xlsx")
-    file_list = sorted(file_list, key=lambda t: os.stat(t).st_mtime)
+    file_list = sorted(file_list, key=lambda t: os.stat(t).st_mtime) # organizar ficheiros pela ordem pela qual foram gerados
     excl_list = []
 
     for file in file_list:

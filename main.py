@@ -66,8 +66,8 @@ while dayCounter < len(firstDatas):
     row = 1
     while startSleepData <= endSleepData:
 
-        worksheet.write(row, 0, dayCounter+1) # dia
-        worksheet.write(row, 1, row) # epoch
+        worksheet.write_number(row, 0, dayCounter+1) # dia
+        worksheet.write_number(row, 1, row) # epoch
         worksheet.write(row, 2, startSleepData, format5)
 
         escreverSleepStages(tempList, worksheet, startSleepData, row)
@@ -77,36 +77,36 @@ while dayCounter < len(firstDatas):
         worksheet.write_datetime(row, 5, startSleepData, format3)
         worksheet.write_datetime(row, 6, endSleepData, format3)
 
-        worksheet.write(row, 7, sleepData['minutesToFallAsleep'])
-        worksheet.write(row, 8, sleepData['minutesAsleep'])
-        worksheet.write(row, 9, sleepData['minutesAwake'])
-        worksheet.write(row, 10, sleepData['minutesAfterWakeup'])
-        worksheet.write(row, 11, sleepData['timeInBed'])
-        worksheet.write(row, 12, sleepData['efficiency'])
+        worksheet.write_number(row, 7, sleepData['minutesToFallAsleep'])
+        worksheet.write_number(row, 8, sleepData['minutesAsleep'])
+        worksheet.write_number(row, 9, sleepData['minutesAwake'])
+        worksheet.write_number(row, 10, sleepData['minutesAfterWakeup'])
+        worksheet.write_number(row, 11, sleepData['timeInBed'])
+        worksheet.write_number(row, 12, sleepData['efficiency'])
 
         levelsSummary = sleepData['levels']['summary']
 
         escreverLevelSummary(worksheet, levelsSummary, row)
 
-        worksheet.write(row, 21, int(GetSleepScore(dataSleepScore, firstDatas[dayCounter])))
+        worksheet.write_number(row, 21, int(GetSleepScore(dataSleepScore, firstDatas[dayCounter])))
 
-        worksheet.write(row, 22, firstCalorias[dayCounter])
+        worksheet.write_number(row, 22, firstCalorias[dayCounter])
 
-        worksheet.write(row, 23, firstPassos[dayCounter])
+        worksheet.write_number(row, 23, firstPassos[dayCounter])
 
-        worksheet.write(row, 24, firstDistance[dayCounter])
+        worksheet.write_number(row, 24, firstDistance[dayCounter])
 
-        worksheet.write(row, 25, firstFloors[dayCounter])
+        worksheet.write_number(row, 25, firstFloors[dayCounter])
 
-        worksheet.write(row, 26, firstAge)
+        worksheet.write_number(row, 26, firstAge)
 
         worksheet.write(row, 27, fistBMI)
 
         stressDoDia = GetStressDoDia(dataStress, firstDatas[dayCounter])
 
-        worksheet.write(row, 28, int(stressDoDia['Stress1']))
-        worksheet.write(row, 29, int(stressDoDia['Stress2']))
-        worksheet.write(row, 30, int(stressDoDia['Stress3']))
+        worksheet.write_number(row, 28, int(stressDoDia['Stress1']))
+        worksheet.write_number(row, 29, int(stressDoDia['Stress2']))
+        worksheet.write_number(row, 30, int(stressDoDia['Stress3']))
 
         datasetDoDia = GetDatasetDoDia(dataDataSet, firstDatas[dayCounter])
 
