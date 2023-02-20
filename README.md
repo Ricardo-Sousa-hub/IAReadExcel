@@ -6,7 +6,7 @@ Uma breve descrição sobre o que esse projeto faz e para quem ele é
 
 ## Instruções de uso:
 - 1º passo, colocar os dados do ficheiro IATP2_Dataset_Contexto1_Dados.xlsx(ficheiro dado pelo professor) num novo ficheiro excel com as colunas Data, Stress1, Stress2, Stress3 e guardar como .csv
-
+![alt text](https://github.com/Ricardo-Sousa-hub/IAReadExcel/Images/image.jpg?raw=true)
 - 2º passo, reformatar o ficheiro IATP2_Dataset_Contexto1_Dados.xlsx(ficheiro dado pelo professor) de modo a ficar como na imagem abaixo, removendo também a pontuação das palavras e reformar de 1.º para penas 1
 
 - 3º passo, colocar os ficheiros .csv anteriores dentro do pasta do projeto do pycharm
