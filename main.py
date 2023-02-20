@@ -5,34 +5,34 @@ import xlsxwriter as xl
 from datetime import timedelta
 
 
-fSleep = open('Sleep/sleep-2023-01-17.json') # alterar nome do ficheiro
+fSleep = open('Sleep/sleep-yyyy-mm-dd.json') # alterar nome do ficheiro
 dataSleep = json.load(fSleep)
 
-fileSleepScore = open("Sleep/sleep_score.csv", "r")
-dataSleepScore = list(csv.DictReader(fileSleepScore))
+fileSleepScore = open("Sleep/sleep_score.csv", "r") # manter nome do ficheiro
+dataSleepScore = list(csv.DictReader(fileSleepScore)) # os dados devem estar separados por , e não por ;
 fileSleepScore.close()
 
-fileStress = open("Stress.csv", "r")
-dataStress = list(csv.DictReader(fileStress))
+fileStress = open("Stress.csv", "r") # csv do IATP2_Dataset_Contexto1_Dados
+dataStress = list(csv.DictReader(fileStress)) # os dados devem estar separados por , e não por ;
 fileStress.close()
 
-fileEvery = open("Dataset.csv", "r")
-dataDataSet = list(csv.DictReader(fileEvery))
+fileEvery = open("Dataset.csv", "r") # csv do IATP2_Dataset_Contexto2_Dados
+dataDataSet = list(csv.DictReader(fileEvery)) # os dados devem estar separados por , e não por ;
 fileStress.close()
 
-firstCalorias = [2319, 2248, 2525, 2649, 2604, 2240, 2944, 2219, 2428, 3017, 2350, 2444, 2397, 2452, 2379]
+firstCalorias = [2319, 2248, 2525, 2649, 2604, 2240, 2944, 2219, 2428, 3017, 2350, 2444, 2397, 2452, 2379] # caloria gastas por dia, do 1 dia ao ultimo dia
 
-firstPassos = [3400, 3287, 6463, 6874, 6765, 2856, 9996, 3081, 5048, 13814, 4299, 4905, 3417, 5074,4314]
+firstPassos = [3400, 3287, 6463, 6874, 6765, 2856, 9996, 3081, 5048, 13814, 4299, 4905, 3417, 5074,4314] # passos dados por dia, do 1 dia ao ultimo dia
 
-# firstHeartRate = [61, 63, 63, 65, 65, 66, 67, 65, 64, 62, 60, 62, 63, 63, 63]
+# firstHeartRate = [61, 63, 63, 65, 65, 66, 67, 65, 64, 62, 60, 62, 63, 63, 63] # media de batimentos cardiacos diarios, do dia 1 ao ultimo dia
 
-firstDistance = [2.47, 2.39, 4.66, 4.96, 4.95, 2.07, 7.26, 2.24, 3.59, 10.04, 3.11, 3.56, 2.48, 3.68, 3.14]
+firstDistance = [2.47, 2.39, 4.66, 4.96, 4.95, 2.07, 7.26, 2.24, 3.59, 10.04, 3.11, 3.56, 2.48, 3.68, 3.14] # distancia percorrida em km por cada dia, do 1 dia ao ultimo
 
-firstFloors = [8, 2, 9, 7, 21, 1, 11, 0, 8, 22, 9, 5, 2, 17, 15]
+firstFloors = [8, 2, 9, 7, 21, 1, 11, 0, 8, 22, 9, 5, 2, 17, 15] # andares percorridos em cada dia, do 1 dia ao ultimo dia
 
-firstAge = 20
+firstAge = 20 # idade
 
-fistBMI = 24.1
+fistBMI = 24.1 # bmi
 
 firstDatas = GetValidDatas(dataSleepScore)
 dataSleep.reverse()
