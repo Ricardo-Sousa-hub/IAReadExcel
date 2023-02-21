@@ -30,5 +30,7 @@ Resultado(ficheiro .csv)
 - 8º passo, executar o programa e aguardar pela mensagem "Dataset final gerado."
 
 - 9º passo, abrir o Final_Dataset.xlsx e preencher os espaços em branco da coluna Sleep_Stage com o último sleep stage desse dia
-
+![Screenshot](Images/DatasetFinalXSLX.png)
+Resultado final:
+![Screenshot](Images/DatasetFinalXSLXResultado.png)
 - 10º passo, gerar o ficheiro .csv a partir do Final_Dataset.xlsx
