@@ -28,9 +28,3 @@ Resultado(ficheiro .csv)<br />
 - 7º passo, trocar o nome do ficheiro fSleep para o nome do ficheiro json presente na pasta Sleep
 
 - 8º passo, executar o programa e aguardar pela mensagem "Dataset final gerado."
-
-- 9º passo, abrir o Final_Dataset.xlsx e preencher os espaços em branco da coluna Sleep_Stage com o último sleep stage desse dia<br />
-![Screenshot](Images/DatasetFinalXSLX.png)<br />
-Resultado final:<br />
-![Screenshot](Images/DatasetFinalXSLXResultado.png)<br />
-- 10º passo, gerar o ficheiro .csv a partir do Final_Dataset.xlsx
