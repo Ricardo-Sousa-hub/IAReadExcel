@@ -62,13 +62,24 @@ while dayCounter < len(firstDatas):
     startSleepData = ConverterStrParaData(startSleep)
     endSleepData = ConverterStrParaData(endSleep)
     row = 1
+
+    status1 = int(escreverSleepStages(tempList, startSleepData))
+
     while startSleepData <= endSleepData:
 
         worksheet.write_number(row, 0, dayCounter+1) # dia
         worksheet.write_number(row, 1, row) # epoch
         worksheet.write(row, 2, startSleepData, format5)
 
-        escreverSleepStages(tempList, worksheet, startSleepData, row)
+        status = escreverSleepStages(tempList, startSleepData)
+
+        if status != "null":
+            try:
+                status1 = int(status)
+            except BaseException:
+                print()
+
+        worksheet.write_number(row, 3, status1)
 
         worksheet.write(row, 4, startSleepData.strftime("%d/%m/%Y"))
 

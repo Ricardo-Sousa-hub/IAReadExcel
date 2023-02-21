@@ -130,24 +130,24 @@ def getSleepData(sleepData, data):
             return item
 
 
-def escreverSleepStages(tempList, worksheet, startTimeD, count):
+def escreverSleepStages(tempList, startTimeD):
+    status = "null"
     for i in tempList:
 
         dateTime1 = ConverterStrParaData(i['dateTime'])
 
-        if startTimeD < dateTime1:
-            status = 0
+        if startTimeD == dateTime1:
             if i['level'] == 'wake':
-                status = 0
+                status = "0"
             if i['level'] == 'light':
-                status = 2
+                status = "2"
             if i['level'] == 'deep':
-                status = 1
+                status = "1"
             if i['level'] == 'rem':
-                status = 3
-            worksheet.write_number(count, 3, status)
-            break
-
+                status = "3"
+            return status
+        else:
+            print()
 
 def escreverLevelSummary(worksheet, levelsSummary, count):
     try:
