@@ -5,7 +5,7 @@ import xlsxwriter as xl
 from datetime import timedelta
 
 
-fSleep = open('Sleep/sleep-2023-01-17.json') # alterar nome do ficheiro
+fSleep = open('Sleep/sleep-2022-11-29.json') # alterar nome do ficheiro
 dataSleep = json.load(fSleep)
 
 fileSleepScore = open("Sleep/sleep_score.csv", "r") # manter nome do ficheiro
@@ -69,7 +69,7 @@ while dayCounter < len(firstDatas):
 
         worksheet.write_number(row, 0, dayCounter+1) # dia
         worksheet.write_number(row, 1, row) # epoch
-        worksheet.write(row, 2, startSleepData, format5)
+        worksheet.write(row, 2, startSleepData.strftime("%H:%M:%S"))
 
         status = (escreverSleepStages(tempList, startSleepData))
 
@@ -81,7 +81,7 @@ while dayCounter < len(firstDatas):
 
         worksheet.write(row, 3, status1)
 
-        worksheet.write(row, 4, startSleepData.strftime("%d/%m/%Y"))
+        worksheet.write(row, 4, endSleepData.strftime("%d/%m/%Y"))
 
         worksheet.write_datetime(row, 5, startSleepData, format3)
         worksheet.write_datetime(row, 6, endSleepData, format3)
