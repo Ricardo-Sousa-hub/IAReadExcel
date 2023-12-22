@@ -1,4 +1,5 @@
 # IAReadExcel
+Este software tem como finalidade simplificar o tratamento de dados provenientes dos fitness trackers da FitBit reunindo todos os dados essenciais num único ficheiro excel que permite o uso dos mesmos para machine learning com a ferramenta KNIME.
 
 ## Instruções de uso:
 - 1º passo, colocar os dados do ficheiro IATP2_Dataset_Contexto1_Dados.xlsx(ficheiro dado pelo professor) num novo ficheiro excel com as colunas Data, Stress1, Stress2, Stress3 e guardar como .csv<br />
