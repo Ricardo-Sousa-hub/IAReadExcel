@@ -86,29 +86,11 @@ def EscreverCabecalho(worksheet):
     worksheet.write(0, 28, 'stress_1')
     worksheet.write(0, 29, 'stress_2')
     worksheet.write(0, 30, 'stress_3')
-    worksheet.write(0, 31, 'Temp_Med')
-    worksheet.write(0, 32, 'Abertura de Apps (Total)')
-    worksheet.write(0, 33, 'Notificacoes (Total)')
-    worksheet.write(0, 34, 'Desbloqueios (Total)')
-    worksheet.write(0, 35, 'Tela 0-3am')
-    worksheet.write(0, 36, 'Tela 3-6am')
-    worksheet.write(0, 37, 'Tela 6-9am')
-    worksheet.write(0, 38, 'Tela 9am-12pm')
-    worksheet.write(0, 39, 'Tela 12-3pm')
-    worksheet.write(0, 40, 'Tela 3-6pm')
-    worksheet.write(0, 41, 'Tela 6-9pm')
-    worksheet.write(0, 42, 'Tela 9pm-0am')
-    worksheet.write(0, 43, 'Email1')
-    worksheet.write(0, 44, 'Email2')
-    worksheet.write(0, 45, 'Email3')
-    worksheet.write(0, 46, 'Email4')
-    worksheet.write(0, 47, 'call1')
-    worksheet.write(0, 48, 'call2')
-    worksheet.write(0, 49, 'call3')
-    worksheet.write(0, 50, 'Text1')
-    worksheet.write(0, 51, 'Text2')
-    worksheet.write(0, 52, 'Text3')
-    worksheet.write(0, 53, 'Text4')
+    worksheet.write(0, 31, 'Abertura de Apps (Total)')
+    worksheet.write(0, 32, 'Notificacoes (Total)')
+    worksheet.write(0, 33, 'Desbloqueios (Total)')
+    worksheet.write(0, 34, 'Tempo de Tela (minutos)')
+
 
 
 def ConverterStrParaData(data):
@@ -131,7 +113,7 @@ def getSleepData(sleepData, data):
 
 
 def escreverSleepStages(tempList, startTimeD):
-    status = "null"
+    status = "0"
     for i in tempList:
 
         dateTime1 = ConverterStrParaData(i['dateTime'])
@@ -148,6 +130,7 @@ def escreverSleepStages(tempList, startTimeD):
             return status
         else:
             print()
+
 
 def escreverLevelSummary(worksheet, levelsSummary, count):
     try:
@@ -185,6 +168,7 @@ def GetSleepScore(dataSleepScore, data):
 
 def GetStressDoDia(dataStress, data):
     for item in dataStress:
+        print(item)
         dataTest = item['Data']
         dataTest = dataTest.replace('/', '-')
         if dataTest == data:
@@ -192,8 +176,9 @@ def GetStressDoDia(dataStress, data):
 
 
 def GetDatasetDoDia(datasetDoDia, data):
+    print(datasetDoDia)
     for item in datasetDoDia:
-        dataTest = item['Dia']
+        dataTest = item['Data']
         dataTest = dataTest.replace('/', '-')
         if dataTest == data:
             return item

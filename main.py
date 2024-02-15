@@ -5,7 +5,7 @@ import xlsxwriter as xl
 from datetime import timedelta
 
 
-fSleep = open('Sleep/sleep-2023-01-17.json') # alterar nome do ficheiro
+fSleep = open('Sleep/sleep-2024-01-11.json') # alterar nome do ficheiro
 dataSleep = json.load(fSleep)
 
 fileSleepScore = open("Sleep/sleep_score.csv", "r") # manter nome do ficheiro
@@ -20,19 +20,19 @@ fileEvery = open("Dataset.csv", "r") # csv do IATP2_Dataset_Contexto2_Dados
 dataDataSet = list(csv.DictReader(fileEvery)) # os dados devem estar separados por , e não por ;
 fileStress.close()
 
-firstCalorias = [2319, 2248, 2525, 2649, 2604, 2240, 2944, 2219, 2428, 3017, 2350, 2444, 2397, 2452, 2379] # caloria gastas por dia, do 1 dia ao ultimo dia
+firstCalorias = [1821, 2444, 2582, 2851, 2547, 1859, 1821, 1983, 1925] # caloria gastas por dia, do 1 dia ao ultimo dia
 
-firstPassos = [3400, 3287, 6463, 6874, 6765, 2856, 9996, 3081, 5048, 13814, 4299, 4905, 3417, 5074,4314] # passos dados por dia, do 1 dia ao ultimo dia
+firstPassos = [5105, 2629, 3289, 2178, 1675, 179, 1244, 1843, 1415] # passos dados por dia, do 1 dia ao ultimo dia
 
 # firstHeartRate = [61, 63, 63, 65, 65, 66, 67, 65, 64, 62, 60, 62, 63, 63, 63] # media de batimentos cardiacos diarios, do dia 1 ao ultimo dia
 
-firstDistance = [2.47, 2.39, 4.66, 4.96, 4.95, 2.07, 7.26, 2.24, 3.59, 10.04, 3.11, 3.56, 2.48, 3.68, 3.14] # distancia percorrida em km por cada dia, do 1 dia ao ultimo
+firstDistance = [3.13, 1.91, 1.42, 1.56, 1.2, 0.13, 0.89, 1.32, 1.01] # distancia percorrida em km por cada dia, do 1 dia ao ultimo
 
-firstFloors = [8, 2, 9, 7, 21, 1, 11, 0, 8, 22, 9, 5, 2, 17, 15] # andares percorridos em cada dia, do 1 dia ao ultimo dia
+firstFloors = [0, 8, 7, 6, 8, 1, 0, 0, 0] # andares percorridos em cada dia, do 1 dia ao ultimo dia
 
-firstAge = 20 # idade
+firstAge = 22 # idade
 
-fistBMI = 24.1 # bmi
+fistBMI = 24.7 # bmi
 
 firstDatas = GetValidDatas(dataSleepScore)
 dataSleep.reverse()
@@ -62,7 +62,8 @@ while dayCounter < len(firstDatas):
     startSleepData = ConverterStrParaData(startSleep)
     endSleepData = ConverterStrParaData(endSleep)
     row = 1
-
+    print(tempList)
+    print(startSleepData)
     status1 = int(escreverSleepStages(tempList, startSleepData))
 
     while startSleepData <= endSleepData:
@@ -119,37 +120,10 @@ while dayCounter < len(firstDatas):
 
         datasetDoDia = GetDatasetDoDia(dataDataSet, firstDatas[dayCounter])
 
-        worksheet.write_number(row, 31, float(datasetDoDia['Temperatura Media do ar']))
-        worksheet.write_number(row, 32, int(datasetDoDia['Abertura de Apps (Total)']))
-        worksheet.write_number(row, 33, int(datasetDoDia['Notificacoes (Total)']))
-        worksheet.write_number(row, 34, int(datasetDoDia['Desbloqueios (Total)']))
-        worksheet.write_number(row, 35, int(datasetDoDia['0-3am']))
-        worksheet.write_number(row, 36, int(datasetDoDia['3-6am']))
-        worksheet.write_number(row, 37, int(datasetDoDia['6-9am']))
-        worksheet.write_number(row, 38, int(datasetDoDia['9am-12pm']))
-        worksheet.write_number(row, 39, int(datasetDoDia['12-3pm']))
-        worksheet.write_number(row, 40, int(datasetDoDia['3-6pm']))
-        worksheet.write_number(row, 41, int(datasetDoDia['6-9pm']))
-        worksheet.write_number(row, 42, int(datasetDoDia['9pm-0am']))
-        worksheet.write_number(row, 43, int(datasetDoDia['Enviados (Total)']))
-        worksheet.write_number(row, 44, int(datasetDoDia['Recebidos (Total)']))
-
-        worksheet.write(row, 45, datasetDoDia['1 email enviado (timestamp)'])
-        worksheet.write(row, 46, datasetDoDia['ultimo email enviado (timestamp)'])
-
-        try:
-            worksheet.write(row, 47, int(datasetDoDia['Total (efetuadas + recebidas)']))
-        except:
-            print()
-        worksheet.write(row, 48, datasetDoDia['1 chamada (timestamp)'])
-        worksheet.write(row, 49, datasetDoDia['ultima chamada (timestamp)'])
-        try:
-            worksheet.write(row, 50, int(datasetDoDia['Total (recebidas + enviadas)']))
-            worksheet.write(row, 51, int(datasetDoDia['Total apos 0h (recebidas + enviadas)']))
-        except:
-            print()
-        worksheet.write(row, 52, datasetDoDia['1 mensagem (timestamp)'])
-        worksheet.write(row, 53, datasetDoDia['ultima mensagem (timestamp)'])
+        worksheet.write_number(row, 31, int(datasetDoDia['Abertura de Apps']))
+        worksheet.write_number(row, 32, int(datasetDoDia['Notificacoes']))
+        worksheet.write_number(row, 33, int(datasetDoDia['Desbloqueios do dispositivo']))
+        worksheet.write_number(row, 34, int(datasetDoDia['Tempo de Tela (minutos)']))
 
         row += 1
         startSleepData = startSleepData + timedelta(seconds=30)
