@@ -1,8 +1,5 @@
-# Título do Projeto
-
-Uma breve descrição sobre o que esse projeto faz e para quem ele é
-
 # IAReadExcel
+Este software tem como finalidade simplificar o tratamento de dados provenientes dos fitness trackers da FitBit reunindo todos os dados essenciais num único ficheiro excel que permite o uso dos mesmos para machine learning com a ferramenta KNIME.
 
 ## Instruções de uso:
 - 1º passo, colocar os dados do ficheiro IATP2_Dataset_Contexto1_Dados.xlsx(ficheiro dado pelo professor) num novo ficheiro excel com as colunas Data, Stress1, Stress2, Stress3 e guardar como .csv<br />
@@ -28,9 +25,3 @@ Resultado(ficheiro .csv)<br />
 - 7º passo, trocar o nome do ficheiro fSleep para o nome do ficheiro json presente na pasta Sleep
 
 - 8º passo, executar o programa e aguardar pela mensagem "Dataset final gerado."
-
-- 9º passo, abrir o Final_Dataset.xlsx e preencher os espaços em branco da coluna Sleep_Stage com o último sleep stage desse dia<br />
-![Screenshot](Images/DatasetFinalXSLX.png)<br />
-Resultado final:<br />
-![Screenshot](Images/DatasetFinalXSLXResultado.png)<br />
-- 10º passo, gerar o ficheiro .csv a partir do Final_Dataset.xlsx
